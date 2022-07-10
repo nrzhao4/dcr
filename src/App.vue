@@ -1,7 +1,5 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "@/components/HelloWorld.vue";
-import CollectionItem from "@/components/CollectionItem.vue";
 </script>
 
 <template>
