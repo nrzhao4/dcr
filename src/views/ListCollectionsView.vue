@@ -1,10 +1,12 @@
-<script setup>
-import TheWelcome from "@/components/TheWelcome.vue";
-import CollectionItem from "@/components/CollectionItem.vue";
+<script>
+import CollectionListItem from "@/components/collections/CollectionListItem.vue";
 </script>
 
 <template>
   <main>
-    <CollectionItem />
+    <div>
+      <h1>View Your Soil Moisture Data</h1>
+      <CollectionListItem />
+    </div>
   </main>
 </template>
