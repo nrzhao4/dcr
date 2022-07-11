@@ -1,15 +1,8 @@
 <script>
 import axios from "axios";
 export default {
-  data() {
-    return {
-      collections: null,
-    };
-  },
-  mounted() {
-    axios
-      .get("http://localhost:4000/collections")
-      .then((res) => (this.collections = res.data));
+  props: {
+    collections: Object,
   },
   methods: {
     getDate(timestamp) {
