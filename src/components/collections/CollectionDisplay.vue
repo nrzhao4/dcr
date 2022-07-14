@@ -1,25 +1,45 @@
 <script>
 import axios from "axios";
+import ApexCharts from "apexcharts";
 
 export default {
   props: {
-    collectionId: String,
+    chartName: String,
+    times: Array,
+    values: Array,
   },
   data() {
     return {
-      collectionData: {},
+      chartOptions: {
+        chart: {
+          id: this.chartName,
+          animations: {
+            enabled: false,
+          },
+        },
+        xaxis: {
+          categories: this.times,
+        },
+      },
+      series: [
+        {
+          name: "series-1",
+          data: this.values,
+        },
+      ],
     };
-  },
-  mounted() {
-    axios
-      .get(`http://localhost:4000/collections/${this.collectionId}`)
-      .then((res) => (this.collectionData = res.data));
   },
 };
 </script>
 
 <template>
   <div>
-    <p>{{ collectionData }}</p>
+    <h3>Sensor: {{ chartName }}</h3>
+    <apexchart
+      width="500"
+      type="line"
+      :options="chartOptions"
+      :series="series"
+    ></apexchart>
   </div>
 </template>
