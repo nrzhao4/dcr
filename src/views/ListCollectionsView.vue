@@ -19,6 +19,7 @@ export default {
   <main>
     <div>
       <h1>View Your Soil Moisture Data</h1>
+      <h3 v-if="!collections">Looks like you have no soil data yet</h3>
       <CollectionListItem :collections="collections" />
     </div>
   </main>
