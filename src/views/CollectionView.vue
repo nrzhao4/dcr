@@ -16,7 +16,7 @@ export default {
       .get(`http://localhost:4000/collections/${this.$route.params.id}`)
       .then((res) => {
         this.collectionData = res.data;
-        this.graphData = this.formatData(res.data);
+        this.graphData = this.formatData();
         // get collection date by looking at first timestamp available
         this.date = res.data[0].data[0].time;
       });
