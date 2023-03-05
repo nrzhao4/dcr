@@ -1,6 +1,8 @@
 <script>
-import CollectionDisplay from "@/components/collections/CollectionDisplay.vue";
-import axios from "axios";
+import CollectionDisplay from '@/components/collections/CollectionDisplay.vue';
+import axios from 'axios';
+
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 export default {
   components: { CollectionDisplay },
@@ -13,7 +15,7 @@ export default {
   },
   mounted() {
     axios
-      .get(`http://localhost:4000/collections/${this.$route.params.id}`)
+      .get(`${BASE_URL}/collections/${this.$route.params.id}`)
       .then((res) => {
         this.collectionData = res.data;
         this.graphData = this.formatData();
@@ -49,21 +51,21 @@ export default {
     collectionDateString() {
       const d = new Date(this.date * 1000);
       const month = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
       ];
       const dateString =
-        month[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
+        month[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
       return dateString;
     },
   },
@@ -78,7 +80,6 @@ export default {
       :key="graph.name"
       :chart-name="graph.name"
       :times="graph.times"
-      :values="graph.values"
-    />
+      :values="graph.values" />
   </div>
 </template>
