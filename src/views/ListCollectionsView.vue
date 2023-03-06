@@ -1,6 +1,6 @@
 <script>
-import CollectionListItem from '@/components/collections/CollectionListItem.vue';
-import axios from 'axios';
+import CollectionListItem from "@/components/collections/CollectionListItem.vue";
+import axios from "axios";
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
@@ -11,9 +11,10 @@ export default {
     };
   },
   mounted() {
-    axios
-      .get(`${BASE_URL}/collections`)
-      .then((res) => (this.collections = res.data));
+    const url = `${BASE_URL}/collections`;
+    console.log("node env: ", import.meta.env.MODE);
+    console.log(url);
+    axios.get(url).then((res) => (this.collections = res.data));
   },
 };
 </script>
