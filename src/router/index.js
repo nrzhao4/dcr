@@ -27,6 +27,16 @@ const router = createRouter({
       name: "collection",
       component: () => import("../views/CollectionView.vue"),
     },
+    {
+      path: "/rover",
+      name: "rover",
+      component: () => import("../views/RoverView.vue"),
+    },
+    {
+      path: "/rover/configure",
+      name: "roverConfig",
+      component: () => import("../views/RoverConfigView.vue"),
+    },
   ],
 });
 
