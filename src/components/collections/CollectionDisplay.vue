@@ -1,6 +1,6 @@
 <script>
-import axios from "axios";
-import ApexCharts from "apexcharts";
+import axios from 'axios';
+import ApexCharts from 'apexcharts';
 
 export default {
   props: {
@@ -19,11 +19,19 @@ export default {
         },
         xaxis: {
           categories: this.times,
+          title: {
+            text: 'Time',
+          },
+        },
+        yaxis: {
+          title: {
+            text: 'Soil Moisture (wfv)',
+          },
         },
       },
       series: [
         {
-          name: "series-1",
+          name: 'series-1',
           data: this.values,
         },
       ],
@@ -39,7 +47,6 @@ export default {
       width="500"
       type="line"
       :options="chartOptions"
-      :series="series"
-    ></apexchart>
+      :series="series"></apexchart>
   </div>
 </template>
