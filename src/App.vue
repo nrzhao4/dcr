@@ -1,11 +1,23 @@
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
+import { RouterLink, RouterView } from 'vue-router';
 </script>
 
 <template>
   <div class="app-container">
     <div class="sidebar">
-      <h1>dcr.</h1>
+      <div class="titleRow">
+        <div>
+          <img
+            src="./assets/images/tractor.png"
+            alt="Yellow tractor illustration"
+            width="60"
+            height="60" />
+        </div>
+        <div>
+          <h1 class="title">dcr.</h1>
+        </div>
+      </div>
+
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
@@ -20,10 +32,23 @@ import { RouterLink, RouterView } from "vue-router";
 </template>
 
 <style>
-@import "@/assets/base.css";
+@import '@/assets/base.css';
 
 h1 {
-  font-weight: 700;
+  font-family: 'Manrope', sans-serif;
+}
+
+.title {
+  font-size: 48px;
+  margin-left: 8px;
+}
+
+.titleRow {
+  /* flex: 1; */
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  margin-top: 32px;
 }
 
 .app-container {
@@ -42,12 +67,13 @@ h1 {
   width: 30%;
   padding: 1rem 2rem;
   height: 100vh;
+  background-color: rgb(251, 251, 250);
   border-right: 1px solid var(--color-border);
 }
 
 .main {
   overflow: visible;
-  padding: 1rem 4rem;
+  padding: 4rem;
 }
 
 nav {

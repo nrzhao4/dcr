@@ -35,7 +35,8 @@ export default {
         let values = [];
         item.data.map((d) => {
           times.push(this.getTimestamp(d.time));
-          values.push(d.value);
+          const getDecimalValue = d.value / 100;
+          values.push(getDecimalValue);
         });
         const sensorData = {
           name: item.sensor,
@@ -73,7 +74,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="mainContainer">
     <h1>Soil moisture data on {{ collectionDateString }}</h1>
     <CollectionDisplay
       v-for="graph in graphData"
@@ -83,3 +84,9 @@ export default {
       :values="graph.values" />
   </div>
 </template>
+
+<style scoped>
+.mainContainer {
+  margin-left: 96px;
+}
+</style>
